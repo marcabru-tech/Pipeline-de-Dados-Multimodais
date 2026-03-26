@@ -1,0 +1,5 @@
+pandas
+pillow
+numpy
+prefect==2.*
+rich

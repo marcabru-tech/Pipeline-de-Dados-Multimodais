@@ -1,0 +1,2 @@
+Pipelines de dados multimodais integram texto, imagem e áudio em um único fluxo de processamento.
+O processamento de linguagem natural permite extrair informações valiosas de grandes volumes de dados textuais em português.

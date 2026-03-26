@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pipeline-de-dados-multimodais"
+version = "0.1.0"
+description = "PoC/MVP de pipeline multimodal com Prefect, Pandas e Pillow."
+requires-python = ">=3.11"
+dependencies = [
+    "pandas",
+    "pillow",
+    "numpy",
+    "prefect==2.*",
+    "rich",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
