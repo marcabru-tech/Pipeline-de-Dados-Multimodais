@@ -1,0 +1,194 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const projects = [
+  {
+    title: "Neon Dashboard",
+    description:
+      "Painel de visualização de dados em tempo real com gráficos interativos e alertas inteligentes, construído sobre uma stack de streaming moderna.",
+    tags: ["React", "D3.js", "Kafka", "Python"],
+    gradient: "from-cyan-500 to-cyan-400",
+    icon: "📊",
+  },
+  {
+    title: "AI Ops Copilot",
+    description:
+      "Assistente de operações baseado em LLM que analisa logs, detecta anomalias e sugere remediações automatizadas para sistemas distribuídos.",
+    tags: ["LLM", "LangChain", "Kubernetes", "FastAPI"],
+    gradient: "from-magenta-600 to-magenta-400",
+    icon: "🤖",
+  },
+  {
+    title: "Design Tokens System",
+    description:
+      "Sistema de design tokens com pipeline de transformação multi-plataforma, sincronizando estilos entre web, iOS e Android a partir de uma única fonte de verdade.",
+    tags: ["Style Dictionary", "TypeScript", "Figma API", "CI/CD"],
+    gradient: "from-cyan-500 to-magenta-500",
+    icon: "🎨",
+  },
+];
+
+const skills = [
+  "Python", "TypeScript", "Apache Spark", "Kafka",
+  "dbt", "Airflow", "Docker", "Kubernetes",
+  "LLMs", "Data Pipelines", "MLOps", "Cloud (AWS/GCP)",
+];
+---
+
+<Layout title="Guilherme Gonçalves Machado | Portfólio">
+  <!-- Nav -->
+  <header class="fixed top-0 inset-x-0 z-50 backdrop-blur border-b border-zinc-800/60">
+    <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+      <span class="font-semibold text-sm tracking-wide text-cyan-400">marcabru.tech</span>
+      <ul class="hidden sm:flex gap-6 text-sm text-zinc-400">
+        <li><a href="#sobre" class="hover:text-cyan-400 transition-colors">Sobre</a></li>
+        <li><a href="#projetos" class="hover:text-cyan-400 transition-colors">Projetos</a></li>
+        <li><a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a></li>
+        <li><a href="#contato" class="hover:text-cyan-400 transition-colors">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center px-6">
+      <div class="max-w-5xl mx-auto w-full pt-20">
+        <p class="text-sm font-medium text-cyan-400 tracking-widest uppercase mb-4">
+          Engenheiro de Dados &amp; Desenvolvedor
+        </p>
+        <h1 class="text-5xl sm:text-7xl font-bold leading-tight mb-6">
+          Guilherme<br />
+          <span class="bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">
+            Gonçalves Machado
+          </span>
+        </h1>
+        <p class="text-lg text-zinc-400 max-w-xl mb-10 leading-relaxed">
+          Construindo pipelines de dados multimodais, sistemas inteligentes e interfaces que transformam
+          informação em conhecimento.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="#projetos"
+            class="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-semibold rounded-lg transition-colors text-sm"
+          >
+            Ver projetos
+          </a>
+          <a
+            href="#contato"
+            class="px-6 py-3 border border-zinc-700 hover:border-magenta-500 hover:text-magenta-400 rounded-lg transition-colors text-sm"
+          >
+            Entrar em contato
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-24 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8">
+          Sobre <span class="text-cyan-400">mim</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12 text-zinc-400 leading-relaxed">
+          <p>
+            Sou apaixonado pela convergência de dados, inteligência artificial e design. Meu paradigma —
+            <em class="text-zinc-200">Ein Sof Aur</em> — propõe integrar conhecimentos de todas as áreas do
+            saber humano por meio de pipelines capazes de processar qualquer modalidade de dado: texto, imagem,
+            áudio, vídeo e sinais físicos.
+          </p>
+          <p>
+            Trabalho na intersecção de engenharia de dados, MLOps e desenvolvimento de produto, criando sistemas
+            que escalam, aprendem e entregam valor real. Acredito que a melhor tecnologia é aquela que amplifica
+            a capacidade humana sem obscurecer a beleza do processo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="py-24 px-6 bg-zinc-900/50">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12">
+          Projetos <span class="text-magenta-400">em destaque</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {
+            projects.map((project) => (
+              <article class="group relative rounded-xl border border-zinc-800 bg-zinc-900 p-6 hover:border-zinc-600 transition-all duration-300 flex flex-col gap-4">
+                <div class={`text-3xl w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br ${project.gradient} bg-opacity-10`}>
+                  {project.icon}
+                </div>
+                <h3 class="text-lg font-semibold">{project.title}</h3>
+                <p class="text-sm text-zinc-400 leading-relaxed flex-1">{project.description}</p>
+                <ul class="flex flex-wrap gap-2 mt-auto">
+                  {project.tags.map((tag) => (
+                    <li class="px-2 py-0.5 bg-zinc-800 text-zinc-300 rounded text-xs font-medium">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-24 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12">
+          Stack &amp; <span class="text-cyan-400">Skills</span>
+        </h2>
+        <ul class="flex flex-wrap gap-3">
+          {
+            skills.map((skill) => (
+              <li class="px-4 py-2 border border-zinc-700 hover:border-cyan-500 hover:text-cyan-400 rounded-full text-sm transition-colors cursor-default">
+                {skill}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-24 px-6 bg-zinc-900/50">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">
+          Vamos <span class="text-magenta-400">conversar?</span>
+        </h2>
+        <p class="text-zinc-400 mb-10 max-w-lg mx-auto">
+          Aberto a colaborações, projetos freelance e oportunidades full-time em engenharia de dados e IA.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="mailto:guilherme@marcabru.tech"
+            class="flex items-center gap-2 px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-semibold rounded-lg transition-colors text-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            E-mail
+          </a>
+          <a
+            href="https://linkedin.com/in/marcabru"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 px-6 py-3 border border-zinc-700 hover:border-magenta-500 hover:text-magenta-400 rounded-lg transition-colors text-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-8 px-6 text-center text-zinc-600 text-sm">
+    <p>&copy; {new Date().getFullYear()} Guilherme Gonçalves Machado · Feito com Astro &amp; Tailwind</p>
+  </footer>
+</Layout>
