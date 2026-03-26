@@ -358,3 +358,69 @@ diferentes línguas como pontos de vista geopolíticos complementares no tabulei
 
 
 
+
+---
+
+## Como rodar
+
+### Instalação
+
+```bash
+python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+pip install -e .
+```
+
+### Execução local (flow direto)
+
+```bash
+python -m pipeline.flow
+```
+
+### Via Prefect engine
+
+```bash
+python -m prefect engine execute flow --module pipeline.flow --name demo_flow
+```
+
+### Registrar deployment
+
+```bash
+python -c "from pipeline.flow import deploy; deploy()"
+```
+
+### Iniciar deployment registrado
+
+```bash
+prefect deployment run demo-flow/demo-flow-local
+```
+
+---
+
+## Quickstart em 5 passos
+
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/marcabru-tech/Pipeline-de-Dados-Multimodais.git
+   cd Pipeline-de-Dados-Multimodais
+   ```
+
+2. **Crie e ative o ambiente virtual**
+   ```bash
+   python -m venv .venv && source .venv/bin/activate
+   ```
+
+3. **Instale as dependências**
+   ```bash
+   pip install -r requirements.txt && pip install -e .
+   ```
+
+4. **Execute o pipeline localmente**
+   ```bash
+   python -m pipeline.flow
+   ```
+
+5. **Inspecione os resultados**
+   ```bash
+   ls data/processed/
+   # text_entities.parquet  image_stats.parquet
+   ```
