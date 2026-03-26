@@ -3,3 +3,4 @@ pillow
 numpy
 prefect==2.*
 rich
+pyarrow>=10.0.0

@@ -5,7 +5,7 @@ from __future__ import annotations
 import pandas as pd
 from prefect import flow, task
 from prefect.deployments import Deployment
-from prefect.schedules import CronSchedule
+from prefect.client.schemas.schedules import CronSchedule
 from rich.console import Console
 from rich.table import Table
 
