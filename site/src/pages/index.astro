@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import BentoCard from '../components/BentoCard.astro';
+
+const projects = [
+  {
+    name: 'Neon Dashboard',
+    desc: 'UI bento + glassmorphism 2.0, charts acessíveis e animações fricção-zero.',
+    icon: '⚡',
+  },
+  {
+    name: 'AI Ops Copilot',
+    desc: 'Sugestões contextuais em tempo real (RSC + streaming) e UX conversacional.',
+    icon: '🤖',
+  },
+  {
+    name: 'Design Tokens System',
+    desc: 'Temas dark/light com contrastes AA/AAA, docs automáticas e CI de acessibilidade.',
+    icon: '🎨',
+  },
+];
+---
+<Base>
+  <main class="mx-auto max-w-5xl px-6 py-16 md:py-24">
+
+    <!-- Hero -->
+    <section class="mb-16 text-center">
+      <p class="mb-2 text-sm font-medium tracking-widest text-accent uppercase">Front-end Engineer &amp; UI Designer</p>
+      <h1 class="mb-4 text-4xl font-bold tracking-tight md:text-6xl">
+        Olá, eu sou <span class="text-accent2">Marc</span> 🚀
+      </h1>
+      <p class="mx-auto max-w-2xl text-muted">
+        Crio experiências dark, acessíveis e super rápidas. Arquiteturas híbridas (Islands + SSR/Edge),
+        design systems tokenizados e produtos AI-first.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a
+          href="mailto:seu.email@exemplo.com"
+          class="rounded-full bg-accent2 px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:opacity-90"
+        >
+          Disponível para projetos
+        </a>
+        <a
+          href="https://www.linkedin.com/in/marcabru-tech/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border border-accent/40 px-6 py-2.5 text-sm font-semibold text-accent transition hover:border-accent/80"
+        >
+          LinkedIn →
+        </a>
+      </div>
+    </section>
+
+    <!-- Bento grid -->
+    <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+      <!-- About -->
+      <BentoCard title="⚡ Sobre" icon="" cols="md:col-span-2 lg:col-span-2">
+        <p>
+          Front-end engineer com foco em performance, DX e micro-interações que dão vida a produtos.
+          Trabalho com arquiteturas híbridas (Islands + SSR/Edge), design systems tokenizados e experiências AI-first.
+        </p>
+        <p class="mt-2">
+          Especialidades: acessibilidade AA/AAA, animações 120–180 ms, dark mode nativo e handoff sólido com times de produto/design.
+        </p>
+      </BentoCard>
+
+      <!-- Stack -->
+      <BentoCard title="🛠 Stack 2026" icon="" cols="md:col-span-1">
+        <ul class="space-y-1">
+          {['Astro', 'Next.js 15', 'TailwindCSS', 'TypeScript', 'Edge Functions', 'AI Copilots'].map((t) => (
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+              {t}
+            </li>
+          ))}
+        </ul>
+      </BentoCard>
+
+      <!-- Projects -->
+      {projects.map((p) => (
+        <BentoCard title={p.name} icon={p.icon}>
+          {p.desc}
+        </BentoCard>
+      ))}
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 text-center text-xs text-muted">
+      <p>© {new Date().getFullYear()} Marc Bru · Feito com Astro + Tailwind</p>
+    </footer>
+
+  </main>
+</Base>
